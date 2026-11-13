@@ -5,7 +5,7 @@ import authCtrl from '../controllers/auth.controller.js'
 const router = express.Router()
 
 router.route('/api/users').get(userCtrl.list)
-router.route('api/users/:id').get(authCtrl.requireSignin, userCtrl.read).put(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.update).delete(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.remove)
+router.route('/api/users/:id').get(authCtrl.requireSignin, userCtrl.read).put(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.update).delete(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.remove)
 router.param('id', userCtrl.userByID)
 router.route('/api/users/:id').get(userCtrl.read)
 router.route('/api/users').post(userCtrl.create)
